@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ThoughtNest | Header</title>
+  <link rel="stylesheet" href="/styles/home.css">
+  <style>
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      font-family: Arial, sans-serif;
+    }
+
+    .dropdown-button {
+      background-color: #435724;
+      color: white;
+      padding: 8px 15px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 15px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 140px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      z-index: 1000;
+      margin-top: 5px;
+      right: 0; /* align right with button */
+    }
+
+    .dropdown-content a {
+      color: #435724;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ff7f50;
+      color: white;
+    }
+
+    .show {
+      display: block;
+    }
+
+    /* Adjust nav so dropdown fits nicely */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">WanderTales</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/post">Post</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+
+    <% if (user) { %>
+      <div class="dropdown">
+        <button class="dropdown-button" onclick="toggleDropdown()">Welcome, <%= user.username %>!</button>
+        <div id="userDropdown" class="dropdown-content">
+          <a href="/myposts">My Posts</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    <% } else { %>
+      <a href="/login">Login</a>
+      
+    <% } %>
+  </nav>
+</header>
+
+<script>
+  function toggleDropdown() {
+    document.getElementById("userDropdown").classList.toggle("show");
+  }
+
+  // Close dropdown if clicked outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-button')) {
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (const dropdown of dropdowns) {
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+
+</body>
+</html>

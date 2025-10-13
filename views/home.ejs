@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("partials/header.ejs") %>
+
+    <!-- ===== Video Section ===== -->
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="/images/travel.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+
+      <div class="content">
+        <div class="card">
+          <h2>Explore the World</h2>
+          <p>
+            Discover beautiful destinations and plan your next adventure with
+            us.
+          </p>
+          <!-- <button onclick="window.location.href='/post'">Get Started</button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Featured Post Section ===== -->
+    <div class="featured-post">
+      <h2 class="featured">Today's Featured Post</h2>
+
+      <% if (featuredPost) { %>
+      <div class="featured-card">
+        <div class="featured-image-wrapper">
+          <img
+            src="<%= featuredPost.image || '/images/default.jpg' %>"
+            alt="Featured Post"
+            class="featured-image"
+          />
+          <div class="featured-overlay"></div>
+          <div class="featured-text">
+            <h2><%= featuredPost.title %></h2>
+            <p><%= featuredPost.content.substring(0, 150) %>...</p>
+            <button
+              class="read-btn"
+              onclick="window.location.href='/posts/<%= featuredPost.id %>'"
+            >
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="featured-card">
+        <div class="featured-image-wrapper">
+          <img
+            src="/images/default.jpg"
+            alt="Featured Post"
+            class="featured-image"
+          />
+          <div class="featured-overlay"></div>
+          <div class="featured-text">
+            <h2>Featured Story</h2>
+            <p>
+              Experience an unforgettable journey across breathtaking
+              destinations around the globe.
+            </p>
+            <button class="read-btn" onclick="window.location.href='/'">
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- ===== Blog Posts Section ===== -->
+    <div class="posts">
+      <h2>Latest Blog Posts</h2>
+
+      <% if (posts.length === 0) { %>
+      <p class="no-posts">No posts found</p>
+      <% } else { %>
+      <div class="post-grid">
+        <% posts.forEach(post => { %>
+        <div class="post">
+          <% if (post.image) { %>
+          <img src="<%= post.image %>" alt="<%= post.title %>" />
+          <% } else { %>
+          <img src="/images/default.jpg" alt="No image available" />
+          <% } %>
+          <div class="post-content">
+            <h3><%= post.title %></h3>
+            <p><%= post.content.substring(0, 100) %>...</p>
+            <em>By <%= post.author %></em>
+          </div>
+          <button
+            class="read-btn"
+            onclick="window.location.href='/posts/<%= post.id %>'"
+          >
+            Read
+          </button>
+        </div>
+        <% }); %>
+      </div>
+      <% } %>
+    </div>
+      ...
+</div> <!-- posts section end -->
+ <%- include("partials/footer.ejs") %>
+
+<script>
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+  </body>
+</html>

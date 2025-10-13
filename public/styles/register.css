@@ -1,0 +1,49 @@
+/* Background gradient */
+.register-body {
+ 
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* Card styling */
+.register-card {
+ background: linear-gradient(to right, #94b564, #5e8223);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: #fff;
+}
+
+/* Input fields */
+.register-card input[type="text"],
+.register-card input[type="email"],
+.register-card input[type="password"] {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: #333;
+}
+
+.register-card input[type="text"]:focus,
+.register-card input[type="email"]:focus,
+.register-card input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+
+/* Gradient button */
+.gradient-btn {
+  background: linear-gradient(135deg,#94b564, #5e8223 100%);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(135deg, #567a1f, #3b5b09 100%);
+}

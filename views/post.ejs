@@ -1,0 +1,21 @@
+<%-include("partials/header.ejs") %>
+<body>
+  <div class="container">
+    <div class="box1">
+      <form method="POST" action="/post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" /><br /><br />
+        <textarea
+          name="content"
+          rows="4"
+          cols="50"
+          placeholder="Content"
+        ></textarea
+        ><br /><br />
+        Add Photo
+        <input type="file" name="image" accept="image/*" /><br /><br />
+
+        <input type="submit" value="Post" class="btn edit-btn"/>
+      </form>
+    </div>
+  </div>
+</body>
