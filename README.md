@@ -30,8 +30,8 @@ This project is built using **HTML, CSS, EJS, JavaScript, Node.js, Express, and 
 
 ## 🎥 Demo Video
 
-Since videos are large, the demo is hosted externally:  
-[Watch the WanderTales Demo](YOUR_GOOGLE_DRIVE_OR_YOUTUBE_LINK_HERE)
+Since background video file is large ,add video link of your choice
+
 
 ---
 
