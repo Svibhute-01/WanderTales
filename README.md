@@ -1,13 +1,4 @@
-Perfect! Let’s create a **professional, placement-ready README.md** for your WanderTales project. I’ll include:
 
-* Project title & description
-* Tech stack
-* Features
-* Screenshots / Demo Video link section
-* Installation & setup instructions
-* Contact info
-
-Here’s a polished version you can copy directly:
 
 ````markdown
 # WanderTales 🌍✈️
